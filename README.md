@@ -14,7 +14,7 @@
 
 <h2 id="about">📌 Sobre</h2>
 
-Este aplicativo de login móvel foi desenvolvido usando React Native e Expo. Ele oferece uma maneira simples e segura para os usuários realizarem login em suas contas.
+Este app de login usa React Native e Expo, fornecendo uma maneira simples e segura de acessar contas. 🔒
 
 <h2 id="started">🚀 Início</h2>
 
