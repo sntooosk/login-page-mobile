@@ -1,6 +1,6 @@
 interface User{
   id : String;
-  nome: String;
+  name: String;
   email: String;
   password: String;
 }

@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { styles } from "./styles";
-import { themes } from "../../utils/theme";
+import { themes } from "../../../utils/theme";
 
 interface SignUpFormProps {
   email: string;
@@ -41,36 +41,45 @@ export default function SignUpForm({
         { backgroundColor: themes.light.COLORS.BACKGROUND },
       ]}
     >
-      <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-        E-mail:
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Name
       </Text>
       <TextInput
-        placeholder={"Digite seu e-mail"}
+        placeholder={"Jonh Doe"}
         placeholderTextColor={themes.light.COLORS.TEXT}
-        style={[styles.input, { color: themes.light.COLORS.CARD_CONTENT }]}
-        value={email}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
         onChangeText={(text) => setEmail(text)}
       />
 
-      <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-        Senha:
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Email Address
       </Text>
       <TextInput
-        placeholder={"Digite sua senha"}
+        placeholder={"alex@email.com"}
         placeholderTextColor={themes.light.COLORS.TEXT}
-        style={[styles.input, { color: themes.light.COLORS.CARD_CONTENT }]}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
+        onChangeText={(text) => setEmail(text)}
+      />
+
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Password
+      </Text>
+      <TextInput
+        placeholder={"Enter your password"}
+        placeholderTextColor={themes.light.COLORS.TEXT}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
         value={password}
         secureTextEntry={!isPasswordVisible}
         onChangeText={(text) => setPassword(text)}
       />
 
-      <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-        Confirme sua senha
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Confirm Password
       </Text>
       <TextInput
-        placeholder={"Confirme sua senha"}
+        placeholder={"Confirm your password"}
         placeholderTextColor={themes.light.COLORS.TEXT}
-        style={[styles.input, { color: themes.light.COLORS.CARD_CONTENT }]}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
         value={confPassword}
         secureTextEntry={!isPasswordVisible}
         onChangeText={(text) => setConfPassword(text)}
@@ -86,7 +95,7 @@ export default function SignUpForm({
             { color: themes.light.COLORS.TEXT },
           ]}
         >
-          {isPasswordVisible ? "Ocultar senha" : "Mostrar senha"}
+          {isPasswordVisible ? "Hide password" : "Show password"}
         </Text>
       </TouchableOpacity>
 
@@ -104,7 +113,7 @@ export default function SignUpForm({
               { color: themes.light.COLORS.BUTTON_TEXT },
             ]}
           >
-            Registrar
+            Register
           </Text>
         )}
       </TouchableOpacity>

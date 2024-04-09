@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Alert } from "react-native";
+import { View, Text, Alert, Image } from "react-native";
 import { styles } from "./styles";
 import * as Animatable from "react-native-animatable";
 import { useAuth } from "../../context/AuthContext";
@@ -43,7 +43,11 @@ function SignIn() {
         delay={500}
         style={styles.containerHeader}
       >
-        <Text style={styles.message}>Bem-vindo</Text>
+        <Image
+          source={require("../../assets/svg/logo.svg")}
+          style={{ width: "50%" }}
+          resizeMode="contain"
+        />
       </Animatable.View>
 
       <SignInForm

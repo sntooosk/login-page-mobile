@@ -1,9 +1,9 @@
 import Credentials from "../models/Credentials";
-import { API_BASE_URL } from "./api";
+import { API } from "./api";
 
 export async function signIn(credentials: Credentials) {
   try {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch(`${API}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

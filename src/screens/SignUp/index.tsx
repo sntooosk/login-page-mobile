@@ -9,6 +9,8 @@ import SignUpForm from "../components/SignUpForm";
 import { signUp } from "../../api/SignUp";
 
 function SignUp() {
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
@@ -26,18 +28,18 @@ function SignUp() {
 
     if (password !== confPassword) {
       setLoading(false);
-      Alert.alert("Erro", "As senhas não correspondem.");
+      Alert.alert("Error", "Passwords do not match.");
       return;
     }
 
     try {
-      await signUp({ email, password });
+      await signUp({ id, name, email, password });
       setLoading(false);
-      Alert.alert("Sucesso", "Registro realizado com sucesso.");
-      navigate("Login");
+      Alert.alert("Success", "Registration successful.");
+      navigate("Log");
     } catch (error) {
       setLoading(false);
-      Alert.alert("Erro", error.message);
+      Alert.alert("Error", error.message);
     }
   };
 
@@ -53,7 +55,7 @@ function SignUp() {
         delay={500}
         style={styles.containerHeader}
       >
-        <Text style={styles.message}>Cadastrar</Text>
+        <Text style={styles.message}>Sign Up</Text>
       </Animatable.View>
 
       <SignUpForm

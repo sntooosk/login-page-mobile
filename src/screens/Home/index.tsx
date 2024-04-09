@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
 
@@ -17,6 +17,12 @@ function Home() {
         { backgroundColor: themes.light.COLORS.PRIMARY },
       ]}
     >
+      <Image
+        source={require("../../assets/svg/main-illustration.svg")}
+        style={{ width: "50%" }}
+        resizeMode="contain"
+      />
+
       <Animatable.View
         delay={600}
         animation="fadeInUp"
@@ -25,8 +31,11 @@ function Home() {
           { backgroundColor: themes.light.COLORS.BACKGROUND },
         ]}
       >
-        <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-          Cuide dos seus maus Hábitos
+        <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+          You should MoveIt!
+        </Text>
+        <Text style={[styles.text, { color: themes.light.COLORS.TITLE }]}>
+          Log in to your account
         </Text>
 
         <TouchableOpacity
@@ -34,7 +43,7 @@ function Home() {
             styles.buttonAcessar,
             { backgroundColor: themes.light.COLORS.BUTTON },
           ]}
-          onPress={() => navigate("Login")}
+          onPress={() => navigate("Log")}
         >
           <Text
             style={[
@@ -42,7 +51,7 @@ function Home() {
               { color: themes.light.COLORS.BUTTON_TEXT },
             ]}
           >
-            Acessar
+            Access
           </Text>
         </TouchableOpacity>
       </Animatable.View>

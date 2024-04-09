@@ -7,7 +7,7 @@ interface AuthContextData {
   authData?: User;
   setAuthData: React.Dispatch<React.SetStateAction<User | undefined>>;
   signIn: (credentials: Credentials) => Promise<void>;
-  signUp: (credentials: Credentials) => Promise<void>;
+  signUp: (credentials: User) => Promise<void>;
   isLoading: boolean;
 }
 

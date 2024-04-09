@@ -21,30 +21,40 @@ export const styles = StyleSheet.create({
     paddingEnd: "5%",
   },
   title: {
-    fontSize: 20,
+    fontSize: 15,
     marginTop: 28,
+    marginBottom: 10
   },
   input: {
-    borderBottomWidth: 1,
-    height: 40,
+    backgroundColor: "#f2f3f7",
+    height: 50,
     marginBottom: 12,
-    fontSize: 16,
+    borderRadius: 10,
+    fontSize: 12,
+    paddingStart: 10
   },
   button: {
     width: "100%",
-    borderRadius: 20,
+    borderRadius: 10,
     paddingVertical: 8,
     marginTop: 14,
     justifyContent: "center",
     alignItems: "center",
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: 12,
+    padding: 5,
     fontWeight: "bold",
   },
   buttonRegister: {
-    marginTop: 14,
     alignSelf: "center",
+    width: "100%",
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingVertical: 8,
+    marginTop: 14,
+    justifyContent: "center",
+    alignItems: "center",
   },
   registerText: {},
   togglePasswordButton: {

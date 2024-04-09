@@ -7,6 +7,15 @@
 ![expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo)
 
 <p align="center">
+    <img src="./.github/img/galeria (1).jpeg" alt="Exemplo de Imagem" width="200px">
+</p>
+<p align="center">
+    <img src="./.github/img/galeria (2).jpeg" alt="Exemplo de Imagem" width="200px">
+</p>
+<p align="center">
+    <img src="./.github/img/galeria (3).jpeg" alt="Exemplo de Imagem" width="200px">
+</p>
+<p align="center">
  <a href="#about">Sobre</a> • 
  <a href="#started">Início</a> • 
  <a href="#features">Recursos</a> • 

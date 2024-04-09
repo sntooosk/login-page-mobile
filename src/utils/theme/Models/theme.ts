@@ -8,8 +8,8 @@ export interface Theme {
     ICON: string;
     PRIMARY: string;
     WHITE: string;
-    CARD_TITLE: string;
-    CARD_CONTENT: string;
+    TITLE: string;
+    CONTENT: string;
     OVERLAY: string;
   };
 }

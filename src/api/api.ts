@@ -1,5 +1,1 @@
-export const API_BASE_URL = "http://seu-endereco-da-api/auth";
-
-
-
-
+export const API = "http://localhost:8080/auth";

@@ -1,9 +1,9 @@
-import Credentials from "../models/Credentials";
-import { API_BASE_URL } from "./api";
+import User from "../models/User";
+import { API } from "./api";
 
-export async function signUp(credentials: Credentials) {
+export async function signUp(credentials: User) {
   try {
-    const response = await fetch(`${API_BASE_URL}/register`, {
+    const response = await fetch(`${API}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,6 +16,7 @@ export async function signUp(credentials: Credentials) {
     }
 
     const { user } = await response.json();
+    
     return user;
   } catch (error) {
     throw new Error(error.message);

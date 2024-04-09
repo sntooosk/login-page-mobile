@@ -8,8 +8,8 @@ import {
 import * as Animatable from "react-native-animatable";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { propsStack } from "../../routes/types";
-import { themes } from "../../utils/theme";
+import { themes } from "../../../utils/theme";
+import { propsStack } from "../../../routes/types";
 
 interface SignInFormProps {
   email: string;
@@ -32,6 +32,7 @@ export default function SignInForm({
   handleLogin,
   loading,
 }: SignInFormProps) {
+
   const { navigate } = useNavigation<propsStack>();
 
   return (
@@ -42,23 +43,23 @@ export default function SignInForm({
         { backgroundColor: themes.light.COLORS.BACKGROUND },
       ]}
     >
-      <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-        E-mail
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Email Address
       </Text>
       <TextInput
-        placeholder={"Digite seu e-mail"}
+        placeholder={"alex@email.com"}
         placeholderTextColor={themes.light.COLORS.TEXT}
-        style={[styles.input, { color: themes.light.COLORS.CARD_CONTENT }]}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
         onChangeText={(text) => setEmail(text)}
       />
 
-      <Text style={[styles.title, { color: themes.light.COLORS.CARD_TITLE }]}>
-        Senha:
+      <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
+        Password
       </Text>
       <TextInput
-        placeholder={"Digite sua senha"}
+        placeholder={"Enter your password"}
         placeholderTextColor={themes.light.COLORS.TEXT}
-        style={[styles.input, { color: themes.light.COLORS.CARD_CONTENT }]}
+        style={[styles.input, { color: themes.light.COLORS.CONTENT }]}
         value={password}
         secureTextEntry={!isPasswordVisible}
         onChangeText={(text) => setPassword(text)}
@@ -73,7 +74,7 @@ export default function SignInForm({
             { color: themes.light.COLORS.TEXT },
           ]}
         >
-          {isPasswordVisible ? "Ocultar senha" : "Mostrar senha"}
+          {isPasswordVisible ? "Hide password" : "Show password"}{" "}
         </Text>
       </TouchableOpacity>
 
@@ -91,16 +92,24 @@ export default function SignInForm({
               { color: themes.light.COLORS.BUTTON_TEXT },
             ]}
           >
-            Acessar
+            Login Now
           </Text>
         )}
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonRegister}>
+      <TouchableOpacity
+        style={[
+          styles.buttonRegister,
+          {
+            backgroundColor: themes.light.COLORS.WHITE,
+            borderColor: themes.light.COLORS.BUTTON,
+          },
+        ]}
+      >
         <Text
-          style={[styles.registerText, { color: themes.light.COLORS.TEXT }]}
-          onPress={() => navigate("Cadastrar")}
+          style={[styles.buttonText, { color: themes.light.COLORS.BUTTON }]}
+          onPress={() => navigate("Home")}
         >
-          Não possui cadastro
+          Signup Now
         </Text>
       </TouchableOpacity>
     </Animatable.View>
