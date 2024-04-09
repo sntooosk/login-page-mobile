@@ -1,7 +1,7 @@
 
 <h1 align="center" style="font-weight: bold;">App de Login Mobile com React Native (Expo) 📱</h1>
 
-![react-native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react)
+[![ReactNative Icon](https://img.shields.io/badge/React_Native-282c34?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev)
 ![expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo)
 
 <p align="center">
