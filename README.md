@@ -1,5 +1,3 @@
-[![react-native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react)](https://reactnative.dev/)
-[![expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo)](https://expo.dev/)
 
 <h1 align="center" style="font-weight: bold;">App de Login Mobile com React Native (Expo) 📱</h1>
 
@@ -23,13 +21,9 @@
  <a href="#license">Licença</a>
 </p>
 
-<p align="center">
-    <img src="./screenshots/login.png" alt="Exemplo de Imagem" width="300px">
-</p>
-
 <h2 id="about">📌 Sobre</h2>
 
-Este aplicativo de login móvel foi desenvolvido usando React Native e Expo. Ele oferece uma maneira simples e segura para os usuários realizarem login em suas contas.
+Este app de login usa React Native e Expo, fornecendo uma maneira simples e segura de acessar contas. 🔒
 
 <h2 id="started">🚀 Início</h2>
 
