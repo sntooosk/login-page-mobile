@@ -1,6 +1,6 @@
 # App de Login Mobile com React Native (Expo) 📱
 
-![react-native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react)
+[![ReactNative Icon](https://img.shields.io/badge/React_Native-282c34?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev)
 ![expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo)
 
 ![Exemplo de Imagem 1](./.github/screenshot/galeria%20(3).jpeg) ![Exemplo de Imagem 2](./.github/screenshot/galeria%20(2).jpeg) ![Exemplo de Imagem 3](./.github/screenshot/galeria%20(1).jpeg)
