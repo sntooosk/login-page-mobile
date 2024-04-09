@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     marginTop: 28,
-    marginBottom: 10
+    marginBottom: 10,
   },
   input: {
     backgroundColor: "#f2f3f7",
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 10,
     fontSize: 12,
-    paddingStart: 10
+    paddingStart: 10,
   },
   button: {
     width: "100%",
@@ -56,7 +56,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  registerText: {},
   togglePasswordButton: {
     marginTop: 10,
     alignSelf: "flex-end",

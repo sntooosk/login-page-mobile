@@ -1,35 +1,19 @@
-
-<h1 align="center" style="font-weight: bold;">App de Login Mobile com React Native (Expo) 📱</h1>
+# App de Login Mobile com React Native (Expo) 📱
 
 ![react-native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react)
 ![expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo)
 
-<p align="center">
-    <img src="./.github/img/galeria (1).jpeg" alt="Exemplo de Imagem" width="200px">
-</p>
-<p align="center">
-    <img src="./.github/img/galeria (2).jpeg" alt="Exemplo de Imagem" width="200px">
-</p>
-<p align="center">
-    <img src="./.github/img/galeria (3).jpeg" alt="Exemplo de Imagem" width="200px">
-</p>
-<p align="center">
- <a href="#about">Sobre</a> • 
- <a href="#started">Início</a> • 
- <a href="#features">Recursos</a> • 
- <a href="#contribute">Contribuir</a> • 
- <a href="#license">Licença</a>
-</p>
+![Exemplo de Imagem 1](./.github/screenshot/galeria%20(3).jpeg) ![Exemplo de Imagem 2](./.github/screenshot/galeria%20(2).jpeg) ![Exemplo de Imagem 3](./.github/screenshot/galeria%20(1).jpeg)
 
-<h2 id="about">📌 Sobre</h2>
+[About](#about) • [Getting Started](#started) • [Features](#features) • [Contribute](#contribute) • [License](#license)
+
+## 📌 About
 
 Este app de login usa React Native e Expo, fornecendo uma maneira simples e segura de acessar contas. 🔒
 
-<h2 id="started">🚀 Início</h2>
+## 🚀 Getting Started
 
-Siga as instruções abaixo para executar o aplicativo localmente:
-
-### Pré-requisitos
+### Prerequisites
 
 - Certifique-se de ter o Node.js instalado em seu sistema.
 - Instale o Expo CLI globalmente:
@@ -38,7 +22,7 @@ Siga as instruções abaixo para executar o aplicativo localmente:
 npm install -g expo-cli
 ```
 
-### Clonagem
+### Cloning
 
 Clone este repositório:
 
@@ -65,15 +49,15 @@ npm start
 
 Use o Expo Go no seu dispositivo móvel ou emulador para escanear o QR code e visualizar o aplicativo.
 
-<h2 id="features">Recursos Principais</h2>
+## Recursos Principais
 
-- **Autenticação Segura**: Utiliza métodos de autenticação seguros para proteger as informações do usuário.
-- **Interface Intuitiva**: Interface de usuário intuitiva e amigável para uma experiência de login simplificada.
+- **Autenticação Segura:** Utiliza métodos de autenticação seguros para proteger as informações do usuário.
+- **Interface Intuitiva:** Interface de usuário intuitiva e amigável para uma experiência de login simplificada.
 
-<h2 id="contribute">Contribuir</h2>
+## Contribuir
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas ou enviar solicitações de pull.
 
-<h2 id="license">Licença</h2>
+## Licença
 
 Este projeto é licenciado sob a [Licença MIT](LICENSE).

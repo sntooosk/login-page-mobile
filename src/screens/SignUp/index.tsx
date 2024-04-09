@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { View, Text, Alert } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
-import { styles } from "./styles";
-import { propsStack } from "../../routes/types";
-import { themes } from "../../utils/theme";
+import { themes } from "../../utils/styles/colors";
 import SignUpForm from "../components/SignUpForm";
 import { signUp } from "../../api/SignUp";
+import { styles } from "./styles";
+import { propsStack } from "../../routes/types";
 
 function SignUp() {
   const [id, setId] = useState("");
@@ -36,7 +36,7 @@ function SignUp() {
       await signUp({ id, name, email, password });
       setLoading(false);
       Alert.alert("Success", "Registration successful.");
-      navigate("Log");
+      navigate("SignIn");
     } catch (error) {
       setLoading(false);
       Alert.alert("Error", error.message);
@@ -45,10 +45,7 @@ function SignUp() {
 
   return (
     <View
-      style={[
-        styles.container,
-        { backgroundColor: themes.light.COLORS.PRIMARY },
-      ]}
+      style={[styles.container, { backgroundColor: themes.COLORS.PRIMARY }]}
     >
       <Animatable.View
         animation="fadeInLeft"

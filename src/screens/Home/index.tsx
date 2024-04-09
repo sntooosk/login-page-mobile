@@ -5,51 +5,44 @@ import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
 import { propsStack } from "../../routes/types";
-import { themes } from "../../utils/theme";
+import { themes } from "../../utils/styles/colors";
+
+import MainIllustrationSvg from "../../assets/svg/main-illustration.svg";
 
 function Home() {
   const { navigate } = useNavigation<propsStack>();
 
   return (
     <View
-      style={[
-        styles.container,
-        { backgroundColor: themes.light.COLORS.PRIMARY },
-      ]}
+      style={[styles.container, { backgroundColor: themes.COLORS.PRIMARY }]}
     >
-      <Image
-        source={require("../../assets/svg/main-illustration.svg")}
-        style={{ width: "50%" }}
-        resizeMode="contain"
-      />
-
+      <Animatable.View delay={600} animation="slideInLeft">
+        <MainIllustrationSvg width={400} height={400} />
+      </Animatable.View>
       <Animatable.View
         delay={600}
         animation="fadeInUp"
         style={[
           styles.containerForm,
-          { backgroundColor: themes.light.COLORS.BACKGROUND },
+          { backgroundColor: themes.COLORS.BACKGROUND },
         ]}
       >
-        <Text style={[styles.title, { color: themes.light.COLORS.TITLE }]}>
-          You should MoveIt!
+        <Text style={[styles.title, { color: themes.COLORS.TITLE }]}>
+          You should Movelt!
         </Text>
-        <Text style={[styles.text, { color: themes.light.COLORS.TITLE }]}>
+        <Text style={[styles.text, { color: themes.COLORS.TITLE }]}>
           Log in to your account
         </Text>
 
         <TouchableOpacity
           style={[
             styles.buttonAcessar,
-            { backgroundColor: themes.light.COLORS.BUTTON },
+            { backgroundColor: themes.COLORS.BUTTON },
           ]}
-          onPress={() => navigate("Log")}
+          onPress={() => navigate("SignIn")}
         >
           <Text
-            style={[
-              styles.buttonText,
-              { color: themes.light.COLORS.BUTTON_TEXT },
-            ]}
+            style={[styles.buttonText, { color: themes.COLORS.BUTTON_TEXT }]}
           >
             Access
           </Text>
@@ -58,4 +51,5 @@ function Home() {
     </View>
   );
 }
+
 export default Home;

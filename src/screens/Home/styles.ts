@@ -4,11 +4,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  containerLogo: {
-    flex: 3,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   containerForm: {
     flex: 1,
     borderTopLeftRadius: 25,
@@ -21,7 +16,9 @@ export const styles = StyleSheet.create({
     marginTop: 28,
     marginBottom: 12,
   },
-  text: {},
+  text: {
+    fontSize: 15,
+  },
   buttonAcessar: {
     borderRadius: 20,
     paddingVertical: 8,

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Alert, Image } from "react-native";
-import { styles } from "./styles";
-import * as Animatable from "react-native-animatable";
 import { useAuth } from "../../context/AuthContext";
-import { themes } from "../../utils/theme";
+import { themes } from "../../utils/styles/colors";
 import SignInForm from "../components/SignInForm";
+import { styles } from "./styles";
+
+import LogoSvg from "../../assets/svg/logo.svg";
+
 
 function SignIn() {
   const { signIn } = useAuth();
@@ -19,8 +21,8 @@ function SignIn() {
       await signIn({ email, password });
     } catch (error) {
       Alert.alert(
-        "Erro",
-        "Ocorreu um erro ao fazer login. Por favor, tente novamente."
+        "Error",
+        "An error occurred while logging in. Please try again."
       );
     } finally {
       setLoading(false);
@@ -33,22 +35,9 @@ function SignIn() {
 
   return (
     <View
-      style={[
-        styles.container,
-        { backgroundColor: themes.light.COLORS.PRIMARY },
-      ]}
+      style={[styles.container, { backgroundColor: themes.COLORS.PRIMARY }]}
     >
-      <Animatable.View
-        animation="fadeInLeft"
-        delay={500}
-        style={styles.containerHeader}
-      >
-        <Image
-          source={require("../../assets/svg/logo.svg")}
-          style={{ width: "50%" }}
-          resizeMode="contain"
-        />
-      </Animatable.View>
+      <LogoSvg width={200} height={150} />
 
       <SignInForm
         email={email}
