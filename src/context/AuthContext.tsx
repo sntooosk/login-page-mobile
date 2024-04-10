@@ -13,6 +13,7 @@ interface AuthContextData {
   setAuthData: React.Dispatch<React.SetStateAction<User | undefined>>;
   signIn: (credentials: Credentials) => Promise<void>;
   signUp: (credentials: User) => Promise<void>;
+  signOut: () => Promise<void>;
   isLoading: boolean;
 }
 
@@ -21,6 +22,7 @@ export const AuthContext = createContext<AuthContextData>({
   setAuthData: () => {},
   signIn: async () => {},
   signUp: async () => {},
+  signOut: async () => {},
   isLoading: false,
 });
 

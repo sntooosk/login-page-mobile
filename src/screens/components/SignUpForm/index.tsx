@@ -21,7 +21,7 @@ interface SignUpFormProps {
   isPasswordVisible: boolean;
   togglePasswordVisibility: () => void;
   handleSignUp: () => void;
-  loading: boolean;
+  isLoading: boolean;
 }
 
 export default function SignUpForm({
@@ -36,7 +36,7 @@ export default function SignUpForm({
   isPasswordVisible,
   togglePasswordVisibility,
   handleSignUp,
-  loading,
+  isLoading,
 }: SignUpFormProps) {
   return (
     <View
@@ -104,9 +104,9 @@ export default function SignUpForm({
       <TouchableOpacity
         style={[styles.button, { backgroundColor: themes.COLORS.BUTTON }]}
         onPress={handleSignUp}
-        disabled={loading}
+        disabled={isLoading}
       >
-        {loading ? (
+        {isLoading ? (
           <ActivityIndicator size="small" color={themes.COLORS.WHITE} />
         ) : (
           <Text

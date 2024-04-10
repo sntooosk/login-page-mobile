@@ -9,7 +9,10 @@ import { propsStack } from "../../routes/types";
 import { useAuth } from "../../context/AuthContext";
 
 function SignUp() {
+  
   const { signUp, isLoading } = useAuth();
+
+  const { navigate } = useNavigation<propsStack>();  
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,25 +20,20 @@ function SignUp() {
   const [confPassword, setConfPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const { navigate } = useNavigation<propsStack>();
-
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prev) => !prev);
   };
 
   const handleSignUp = async () => {
     if (password !== confPassword) {
-      Alert.alert("Error", "Passwords do not match.");
+      Alert.alert("Erro", "As senhas não coincidem.");
       return;
     }
 
     try {
       await signUp({ name, email, password });
-      Alert.alert("Success", "Registration successful.");
       navigate("SignIn");
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -47,7 +45,7 @@ function SignUp() {
         delay={500}
         style={styles.containerHeader}
       >
-        <Text style={styles.message}>Sign Up</Text>
+        <Text style={styles.message}>Cadastrar</Text>
       </Animatable.View>
 
       <SignUpForm
@@ -62,7 +60,7 @@ function SignUp() {
         isPasswordVisible={isPasswordVisible}
         togglePasswordVisibility={togglePasswordVisibility}
         handleSignUp={handleSignUp}
-        loading={isLoading}
+        isLoading={isLoading}
       />
     </View>
   );

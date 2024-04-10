@@ -4,32 +4,11 @@ import { styles } from "./styles";
 import { FontAwesome } from "@expo/vector-icons";
 import { themes } from "../../utils/styles/colors";
 import Header from "../components/Header";
-import { asyncRemoveUser } from "../../utils/storage/AuthStorage";
 import { useAuth } from "../../context/AuthContext";
 
 function Profile() {
-  const { setAuthData } = useAuth();
-
-  const handleSignOut = async () => {
-    Alert.alert(
-      "Confirmação",
-      "Deseja sair?",
-      [
-        {
-          text: "Cancelar",
-          style: "cancel",
-        },
-        {
-          text: "Sair",
-          onPress: async () => {
-            setAuthData(undefined);
-            await asyncRemoveUser();
-          },
-        },
-      ],
-      { cancelable: false }
-    );
-  };
+  
+  const { signOut } = useAuth();
 
   return (
     <View
@@ -54,7 +33,7 @@ function Profile() {
           ]}
         >
           <View style={styles.botoes}>
-            <TouchableOpacity onPress={handleSignOut}>
+            <TouchableOpacity onPress={signOut}>
               <FontAwesome
                 name="sign-out"
                 size={30}

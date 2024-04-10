@@ -4,7 +4,12 @@ import { AuthContext } from "../context/AuthContext";
 import Credentials from "../models/Credentials";
 import { signIn as signInApi } from "../api/SignIn";
 import { signUp as signUpApi } from "../api/SignUp";
-import { asyncGetUser, asyncSetUser } from "../utils/storage/AuthStorage";
+import {
+  asyncGetUser,
+  asyncRemoveUser,
+  asyncSetUser,
+} from "../utils/storage/AuthStorage";
+import { Alert } from "react-native";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [authData, setAuthData] = useState<User | undefined>();
@@ -22,7 +27,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setAuthData(user);
       }
     } catch (error) {
-      console.error("Error loading user from storage:", error);
+      console.error("Erro ao carregar usuário do armazenamento:", error);
     } finally {
       setIsLoading(false);
     }
@@ -35,8 +40,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setAuthData(user);
       await asyncSetUser(user);
     } catch (error) {
-      console.error("Error signing in:", error);
-      throw error;
+      console.error("Erro ao entrar:", error);
+      Alert.alert("Falha ao entrar");
     } finally {
       setIsLoading(false);
     }
@@ -46,14 +51,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(true);
     try {
       await signUpApi(user);
-      setAuthData(user);
-      await asyncSetUser(user);
+      Alert.alert("Cadastro realizado com sucesso");
     } catch (error) {
-      console.error("Error signing up:", error);
-      throw error;
+      console.error("Erro ao se cadastrar:", error);
+      Alert.alert("Falha ao se cadastrar");
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const signOut = async () => {
+    Alert.alert(
+      "Confirmação",
+      "Deseja sair?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Sair",
+          onPress: async () => {
+            setAuthData(undefined);
+            await asyncRemoveUser();
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
@@ -63,6 +88,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setAuthData,
         signIn,
         signUp,
+        signOut,
         isLoading,
       }}
     >

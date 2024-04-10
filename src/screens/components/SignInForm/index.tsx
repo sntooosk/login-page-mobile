@@ -19,7 +19,7 @@ interface SignInFormProps {
   isPasswordVisible: boolean;
   togglePasswordVisibility: () => void;
   handleLogin: () => void;
-  loading: boolean;
+  isLoading: boolean;
 }
 
 export default function SignInForm({
@@ -30,7 +30,7 @@ export default function SignInForm({
   isPasswordVisible,
   togglePasswordVisibility,
   handleLogin,
-  loading,
+  isLoading,
 }: SignInFormProps) {
   const { navigate } = useNavigation<propsStack>();
 
@@ -80,9 +80,9 @@ export default function SignInForm({
       <TouchableOpacity
         style={[styles.button, { backgroundColor: themes.COLORS.BUTTON }]}
         onPress={handleLogin}
-        disabled={loading}
+        disabled={isLoading}
       >
-        {loading ? (
+        {isLoading ? (
           <ActivityIndicator size="small" color={themes.COLORS.WHITE} />
         ) : (
           <Text
@@ -93,7 +93,7 @@ export default function SignInForm({
         )}
       </TouchableOpacity>
       <TouchableOpacity
-       onPress={() => navigate("SignUp")}
+        onPress={() => navigate("SignUp")}
         style={[
           styles.buttonRegister,
           {
@@ -102,9 +102,7 @@ export default function SignInForm({
           },
         ]}
       >
-        <Text
-          style={[styles.buttonText, { color: themes.COLORS.BUTTON }]}
-        >
+        <Text style={[styles.buttonText, { color: themes.COLORS.BUTTON }]}>
           Signup Now
         </Text>
       </TouchableOpacity>
