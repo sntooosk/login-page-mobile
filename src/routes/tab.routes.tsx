@@ -6,6 +6,7 @@ import { StatusBar } from "react-native";
 import { themes } from "../utils/styles/colors";
 import { propsNavigationStack } from "./types";
 import FAQ from "../screens/FAQ";
+import Profile from "../screens/Profile";
 
 const { Navigator, Screen } = createBottomTabNavigator<propsNavigationStack>();
 
@@ -32,7 +33,21 @@ export default function TabRoutes() {
               <Feather
                 name="info"
                 size={focused ? size + 5 : size}
-                color={focused ? themes.COLORS.PRIMARY : themes.COLORS.ICON}
+                color={focused ? themes.COLORS.PRIMARY : themes.COLORS.TITLE}
+              />
+            ),
+            tabBarLabel: () => null,
+          }}
+        />
+        <Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarIcon: ({ focused, size }) => (
+              <Feather
+                name="user"
+                size={focused ? size + 5 : size}
+                color={focused ? themes.COLORS.PRIMARY : themes.COLORS.TITLE}
               />
             ),
             tabBarLabel: () => null,

@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  questionContainer: {
+  benefitContainer: {
     margin: 16,
     borderRadius: 20,
     padding: 5,
@@ -18,18 +18,18 @@ export const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 8,
   },
-  questionText: {
-    fontSize: 15,
+  benefitTitle: {
+    fontSize: 18,
     fontWeight: "bold",
     padding: 16,
   },
-  answerText: {
+  benefitDescription: {
     fontSize: 15,
     paddingHorizontal: 16,
     paddingBottom: 16,
     paddingTop: 8,
   },
-  questionHeader: {
+  benefitHeader: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",

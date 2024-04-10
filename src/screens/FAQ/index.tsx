@@ -3,76 +3,46 @@ import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { styles } from "./styles";
 import * as Animatable from "react-native-animatable";
 import { themes } from "../../utils/styles/colors";
+import Header from "../components/Header";
 
 export default function FAQ() {
-  const [questions] = useState([
+  const [benefits] = useState([
     {
       id: 1,
-      pergunta: "O que é saúde cardiovascular?",
-      resposta:
-        "A saúde cardiovascular refere-se ao bem-estar do coração e dos vasos sanguíneos, envolvendo práticas que promovem a prevenção de doenças cardíacas.",
+      title: "Melhora da saúde cardiovascular",
+      description:
+        "A corrida fortalece o coração, melhora a circulação sanguínea e ajuda a reduzir o risco de doenças cardíacas.",
     },
     {
       id: 2,
-      pergunta: "Quais são os hábitos alimentares saudáveis para o coração?",
-      resposta:
-        "Uma dieta equilibrada, rica em frutas, vegetais, grãos integrais e com baixo teor de gorduras saturadas, ajuda a manter a saúde do coração e a reduzir o risco de doenças cardíacas.",
+      title: "Aumento da resistência física",
+      description:
+        "Correr regularmente aumenta a resistência física e melhora a capacidade pulmonar.",
     },
     {
       id: 3,
-      pergunta: "Como a atividade física contribui para a saúde cardíaca?",
-      resposta:
-        "A prática regular de exercícios fortalece o coração, melhora a circulação sanguínea, controla a pressão arterial e reduz os níveis de colesterol, promovendo a saúde cardiovascular.",
+      title: "Redução do estresse e ansiedade",
+      description:
+        "A corrida libera endorfinas, neurotransmissores que proporcionam sensação de bem-estar, ajudando a reduzir o estresse e a ansiedade.",
     },
     {
       id: 4,
-      pergunta: "Quais são os sinais de alerta de problemas cardíacos?",
-      resposta:
-        "Sintomas como dor no peito, falta de ar, palpitações e fadiga inexplicável podem indicar problemas cardíacos. Consultar um profissional de saúde é fundamental diante desses sinais.",
+      title: "Controle do peso",
+      description:
+        "A prática regular de corrida ajuda na queima de calorias e no controle do peso corporal.",
     },
     {
       id: 5,
-      pergunta: "Qual é a importância do controle do estresse para o coração?",
-      resposta:
-        "O estresse crônico pode impactar negativamente o coração. Estratégias de gerenciamento do estresse, como meditação e atividades relaxantes, são benéficas para a saúde cardiovascular.",
-    },
-    {
-      id: 6,
-      pergunta: "Como a qualidade do sono afeta o coração?",
-      resposta:
-        "Um sono adequado é vital para a recuperação do coração. A falta de sono pode contribuir para o desenvolvimento de condições cardíacas, sendo essencial manter uma rotina de sono saudável.",
-    },
-    {
-      id: 7,
-      pergunta: "Quais são os benefícios da manutenção de um peso saudável?",
-      resposta:
-        "Manter um peso adequado reduz a carga sobre o coração, diminui o risco de doenças cardíacas e contribui para a saúde geral do sistema cardiovascular.",
-    },
-    {
-      id: 8,
-      pergunta: "Como a cessação do tabagismo impacta a saúde do coração?",
-      resposta:
-        "Parar de fumar beneficia diretamente a saúde do coração, reduzindo o risco de doenças cardiovasculares. Os benefícios começam a ser notados logo após a cessação do hábito.",
-    },
-    {
-      id: 9,
-      pergunta:
-        "Quais são os exames de rotina essenciais para monitorar a saúde cardíaca?",
-      resposta:
-        "Exames como o check-up anual, a medição da pressão arterial, a análise do colesterol e exames específicos, quando indicados, são fundamentais para monitorar a saúde do coração.",
-    },
-    {
-      id: 10,
-      pergunta: "Como a genética influencia a saúde cardiovascular?",
-      resposta:
-        "A predisposição genética pode influenciar o risco de doenças cardíacas. Compreender a história familiar e realizar avaliações médicas regulares são passos importantes para um cuidado preventivo.",
+      title: "Fortalecimento muscular",
+      description:
+        "A corrida trabalha diversos grupos musculares, promovendo o fortalecimento e tonificação do corpo.",
     },
   ]);
 
-  const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [selectedBenefit, setSelectedBenefit] = useState(null);
 
-  const handleQuestionPress = (id) => {
-    setSelectedQuestion(id === selectedQuestion ? null : id);
+  const handleBenefitPress = (id) => {
+    setSelectedBenefit(id === selectedBenefit ? null : id);
   };
 
   return (
@@ -84,22 +54,26 @@ export default function FAQ() {
         },
       ]}
     >
+      <View>
+        <Header title="Benefícios da Corrida" />
+      </View>
+
       <ScrollView showsVerticalScrollIndicator={false}>
-        {questions.map((item) => (
+        {benefits.map((item) => (
           <Animatable.View
             key={item.id}
             animation="fadeInUp"
             style={[
-              styles.questionContainer,
+              styles.benefitContainer,
               {
                 backgroundColor: themes.COLORS.BACKGROUND_CARD,
               },
             ]}
           >
-            <TouchableOpacity onPress={() => handleQuestionPress(item.id)}>
+            <TouchableOpacity onPress={() => handleBenefitPress(item.id)}>
               <View
                 style={[
-                  styles.questionHeader,
+                  styles.benefitHeader,
                   {
                     backgroundColor: themes.COLORS.BACKGROUND_CARD,
                   },
@@ -107,27 +81,27 @@ export default function FAQ() {
               >
                 <Text
                   style={[
-                    styles.questionText,
+                    styles.benefitTitle,
                     {
                       color: themes.COLORS.TITLE,
                     },
                   ]}
                 >
-                  {item.pergunta}
+                  {item.title}
                 </Text>
               </View>
             </TouchableOpacity>
-            {selectedQuestion === item.id && (
+            {selectedBenefit === item.id && (
               <Animatable.Text
                 animation="fadeIn"
                 style={[
-                  styles.answerText,
+                  styles.benefitDescription,
                   {
                     color: themes.COLORS.CONTENT,
                   },
                 ]}
               >
-                {item.resposta}
+                {item.description}
               </Animatable.Text>
             )}
           </Animatable.View>

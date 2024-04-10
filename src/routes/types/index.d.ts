@@ -5,6 +5,8 @@ export type propsNavigationStack = {
   SignIn: undefined | any;
   SignUp: undefined | any;
   FAQ: undefined | any;
+  Profile: undefined | any;
+
 };
 
 export type propsStack = NativeStackNavigationProp<propsNavigationStack>;

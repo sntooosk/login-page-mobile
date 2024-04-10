@@ -1,1 +1,1 @@
-export const API = "http://localhost:8080/auth";
+export const API = 'https://login-app-backend-hx35.onrender.com/auth';

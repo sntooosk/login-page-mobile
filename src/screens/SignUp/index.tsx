@@ -4,18 +4,18 @@ import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
 import { themes } from "../../utils/styles/colors";
 import SignUpForm from "../components/SignUpForm";
-import { signUp } from "../../api/SignUp";
 import { styles } from "./styles";
 import { propsStack } from "../../routes/types";
+import { useAuth } from "../../context/AuthContext";
 
 function SignUp() {
-  const [id, setId] = useState("");
+  const { signUp, isLoading } = useAuth();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const { navigate } = useNavigation<propsStack>();
 
@@ -24,21 +24,16 @@ function SignUp() {
   };
 
   const handleSignUp = async () => {
-    setLoading(true);
-
     if (password !== confPassword) {
-      setLoading(false);
       Alert.alert("Error", "Passwords do not match.");
       return;
     }
 
     try {
-      await signUp({ id, name, email, password });
-      setLoading(false);
+      await signUp({ name, email, password });
       Alert.alert("Success", "Registration successful.");
       navigate("SignIn");
     } catch (error) {
-      setLoading(false);
       Alert.alert("Error", error.message);
     }
   };
@@ -56,6 +51,8 @@ function SignUp() {
       </Animatable.View>
 
       <SignUpForm
+        name={name}
+        setName={setName}
         email={email}
         setEmail={setEmail}
         password={password}
@@ -65,7 +62,7 @@ function SignUp() {
         isPasswordVisible={isPasswordVisible}
         togglePasswordVisibility={togglePasswordVisibility}
         handleSignUp={handleSignUp}
-        loading={loading}
+        loading={isLoading}
       />
     </View>
   );

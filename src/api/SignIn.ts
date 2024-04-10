@@ -1,23 +1,14 @@
-import Credentials from "../models/Credentials";
+import axios from "axios";
 import { API } from "./api";
+import Credentials from "../models/Credentials";
 
 export async function signIn(credentials: Credentials) {
   try {
-    const response = await fetch(`${API}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
-
-    if (!response.ok) {
-      throw new Error("Credenciais inválidas");
-    }
-
-    const { user } = await response.json();
-    return user;
+    const response = await axios.post(`${API}/login`, credentials);
+    const { data } = response;
+    console.log(data);
+    return data;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error("Erro ao efetuar login");
   }
 }

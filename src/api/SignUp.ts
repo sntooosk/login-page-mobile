@@ -1,24 +1,14 @@
-import User from "../models/User";
+import axios from "axios";
 import { API } from "./api";
+import User from "../models/User";
 
-export async function signUp(credentials: User) {
+export async function signUp(user: User) {
   try {
-    const response = await fetch(`${API}/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
-
-    if (!response.ok) {
-      throw new Error("Erro ao registrar usuário");
-    }
-
-    const { user } = await response.json();
-    
-    return user;
+    const response = await axios.post(`${API}/register`, user);
+    const { data } = response;
+    console.log(data);
+    return data;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error("Erro ao efetuar cadastro");
   }
 }

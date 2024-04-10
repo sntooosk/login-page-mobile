@@ -10,6 +10,8 @@ import { styles } from "./styles";
 import { themes } from "../../../utils/styles/colors";
 
 interface SignUpFormProps {
+  name: string;
+  setName: (value: string) => void;
   email: string;
   setEmail: (value: string) => void;
   password: string;
@@ -23,6 +25,8 @@ interface SignUpFormProps {
 }
 
 export default function SignUpForm({
+  name,
+  setName,
   email,
   setEmail,
   password,
@@ -46,7 +50,7 @@ export default function SignUpForm({
         placeholder={"Jonh Doe"}
         placeholderTextColor={themes.COLORS.TEXT}
         style={[styles.input, { color: themes.COLORS.CONTENT }]}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={(text) => setName(text)}
       />
 
       <Text style={[styles.title, { color: themes.COLORS.TITLE }]}>

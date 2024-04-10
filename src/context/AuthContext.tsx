@@ -1,7 +1,12 @@
-import React, { createContext, useContext } from "react";
-import User from "../models/User";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 import Credentials from "../models/Credentials";
-
+import User from "../models/User";
 
 interface AuthContextData {
   authData?: User;
@@ -11,9 +16,13 @@ interface AuthContextData {
   isLoading: boolean;
 }
 
-export const AuthContext = createContext<AuthContextData>(
-  {} as AuthContextData
-);
+export const AuthContext = createContext<AuthContextData>({
+  authData: undefined,
+  setAuthData: () => {},
+  signIn: async () => {},
+  signUp: async () => {},
+  isLoading: false,
+});
 
 export function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
