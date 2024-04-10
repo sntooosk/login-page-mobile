@@ -6,7 +6,6 @@ export async function signIn(credentials: Credentials) {
   try {
     const response = await axios.post(`${API}/login`, credentials);
     const { data } = response;
-    console.log(data);
     return data;
   } catch (error) {
     throw new Error("Erro ao efetuar login");

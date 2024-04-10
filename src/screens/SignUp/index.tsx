@@ -9,10 +9,9 @@ import { propsStack } from "../../routes/types";
 import { useAuth } from "../../context/AuthContext";
 
 function SignUp() {
-  
   const { signUp, isLoading } = useAuth();
 
-  const { navigate } = useNavigation<propsStack>();  
+  const { navigate } = useNavigation<propsStack>();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

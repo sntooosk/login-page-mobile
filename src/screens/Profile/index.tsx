@@ -7,7 +7,6 @@ import Header from "../components/Header";
 import { useAuth } from "../../context/AuthContext";
 
 function Profile() {
-  
   const { signOut } = useAuth();
 
   return (

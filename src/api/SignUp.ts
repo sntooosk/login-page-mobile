@@ -6,7 +6,6 @@ export async function signUp(user: User) {
   try {
     const response = await axios.post(`${API}/register`, user);
     const { data } = response;
-    console.log(data);
     return data;
   } catch (error) {
     throw new Error("Erro ao efetuar cadastro");
