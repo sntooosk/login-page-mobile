@@ -11,8 +11,9 @@ function Profile() {
 
   const user = authData;
 
+  const [token] = useState(user.token);
   const [name] = useState(user.name);
-  const [email] = useState(user.email)
+  const [email] = useState(user.email);
 
   return (
     <View
@@ -45,9 +46,8 @@ function Profile() {
               />
             </TouchableOpacity>
           </View>
-          <Text>id : {user.id}</Text>
-          <Text>Nome : {user.name}</Text>
-          <Text>Email : {user.email}</Text>
+          <Text>Token : {token}</Text>
+          <Text>Email : {email}</Text>
         </View>
       </ScrollView>
     </View>

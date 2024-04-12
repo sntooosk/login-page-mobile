@@ -1,5 +1,5 @@
 interface User{
-  id: String;
+  token: String;
   name: String;
   email: String;
   password: String;
