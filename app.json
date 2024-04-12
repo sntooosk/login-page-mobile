@@ -31,7 +31,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#7001FD"
-      }
+      },
+      "package": "com.devsntosx71.movelt"
     },
     "web": {
       "favicon": "./assets/favicon.png"

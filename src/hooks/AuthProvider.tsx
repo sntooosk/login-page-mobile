@@ -1,7 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import User from "../models/User";
 import { AuthContext } from "../context/AuthContext";
-import Credentials from "../models/Credentials";
 import { signIn as signInApi } from "../api/SignIn";
 import { signUp as signUpApi } from "../api/SignUp";
 import {
@@ -10,6 +8,9 @@ import {
   asyncSetUser,
 } from "../utils/storage/AuthStorage";
 import { Alert } from "react-native";
+import LoginRequest from "../models/dto/LoginRequestDTO";
+import RegisterRequest from "../models/dto/RegisterRequestDTO";
+import User from "../models/User";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [authData, setAuthData] = useState<User | undefined>();
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const user = await asyncGetUser();
       if (user) {
         setAuthData(user);
+        console.log(user);
       }
     } catch (error) {
       console.error("Erro ao carregar usuário do armazenamento:", error);
@@ -33,11 +35,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const signIn = async (credentials: Credentials) => {
+  const signIn = async (credentials: LoginRequest) => {
     setIsLoading(true);
     try {
       const user = await signInApi(credentials);
       setAuthData(user);
+      console.log(user);
       await asyncSetUser(user);
     } catch (error) {
       console.error("Erro ao entrar:", error);
@@ -47,10 +50,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const signUp = async (user: User) => {
+  const signUp = async (credentials: RegisterRequest) => {
     setIsLoading(true);
     try {
-      await signUpApi(user);
+      await signUpApi(credentials);
       Alert.alert("Cadastro realizado com sucesso");
     } catch (error) {
       console.error("Erro ao se cadastrar:", error);
